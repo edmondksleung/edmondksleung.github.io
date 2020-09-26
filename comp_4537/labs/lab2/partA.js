@@ -1,9 +1,13 @@
 function generateButtons() 
 {
     let input = document.getElementById("numLetters").value;
+    let buttonArea = document.getElementById("buttonArea");
+
+    buttonArea.innerHTML = "";
 
     let alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", 
         "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+
 
     if (input < 0 || input > 26) 
     {
@@ -15,8 +19,6 @@ function generateButtons()
     {
         let button = document.createElement("button");
         button.innerHTML = alphabet[i];
-
-        let buttonArea = document.getElementById("buttonArea")
         buttonArea.appendChild(button);
 
         button.addEventListener ("click", function() {
