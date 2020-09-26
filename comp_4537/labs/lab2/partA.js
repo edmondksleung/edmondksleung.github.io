@@ -18,6 +18,7 @@ function generateButtons()
     {
         let button = document.createElement("button");
         button.innerHTML = alphabet[i];
+        button.className += "letters";
         letterArea.appendChild(button);
 
         button.addEventListener ("click", function() {
