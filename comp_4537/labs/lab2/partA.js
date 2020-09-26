@@ -1,4 +1,4 @@
 function saveInput() {
-    let input = document.getElementById("numberLetters").nodeValue
+    let input = document.getElementById("numLetters").value
     alert(input)
 }
