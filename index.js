@@ -11,4 +11,4 @@ http.createServer((req,res) => {
     });
 
     res.end(`Hello ${q.query['name']}`);
-}).listen(process.env.PORT || 3000);
+}).listen(process.env.PORT || 8888);
