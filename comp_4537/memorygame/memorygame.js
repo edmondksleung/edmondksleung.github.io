@@ -18,10 +18,14 @@ function createGrid(x, y) {
     };
     $("#playable").width(85 * x);
     $("#playable").height(85 * y);
+
+    setTimeout(function(){ $(".correct").css("background-color", "white"); rotate(90, 1200); }, 2000);
+    
 };
 
 function clearGrid(){
     $(".grid").remove();
+    rotate(0, 1);
 };  
 
 function refreshGrid(){
@@ -43,6 +47,18 @@ function random(x, y) {
     }
     
     return randomArray
+}
+
+function rotate(x, y) {
+    $('#playable').animate(
+        { deg: x },
+        {
+            duration: y,
+            step: function(now) {
+              $(this).css({ transform: 'rotate(' + now + 'deg)' });
+            }
+        }
+    );    
 }
 
 // create a 16x16 grid when the page loads

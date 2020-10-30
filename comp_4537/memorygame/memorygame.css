@@ -11,3 +11,7 @@
 	border: 2px solid gray;
 	display:inline-block;
 }
+
+.correct {
+    background-color: greenyellow;
+}
