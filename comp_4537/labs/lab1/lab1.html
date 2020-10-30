@@ -6,16 +6,22 @@
   <body>
     <h1>Lab 1</h1>
     <br>
-    <p>1. Where should you develop and test your JavaScript code?</p>
+    <p>1. In a method, <strong>this</strong> refers to the __________?</p>
     <div>
-      <input type="radio" name="q1" value="a"> a) Develop in as many browsers, but test on your preferred browser.<br>
-      <input type="radio" name="q1" value="b"> b) Develop in a code editor, but test in an IDE that has a web server extension.<br>
-      <input type="radio" name="q1" value="c"> c) Develop in your preferred browser, but test on all modern browsers.<br>
-      <input type="radio" name="q1" value="d"> a) Develop and test in your preferred browser.
+      <input type="radio" name="q1" value="a"> a) owner object<br>
+      <input type="radio" name="q1" value="b"> b) global object<br>
+      <input type="radio" name="q1" value="c"> c) undefined<br>
+      <input type="radio" name="q1" value="d"> a) the element that received the event
     </div>
     <br>
-    <p>2. What would be the value of <b>sum</b> in this code example?</p>
+    <p>2. What will be the output of this code be?</p>
     <div>
+      &ltp id="demo">&lt/&gt
+      &ltscript>
+      var x = this;
+      document.getElementById("demo").innerHTML = x;
+      &lt/script>
+
       <input type="radio" name="q2" value="a"> a) 15<br>
       <input type="radio" name="q2" value="b"> b) 123<br>
       <input type="radio" name="q2" value="c"> c) NaN<br>

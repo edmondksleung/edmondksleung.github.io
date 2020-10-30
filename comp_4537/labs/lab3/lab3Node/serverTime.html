@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>edmondksleung.github.io</title>
+</head>
+<body>
+    <div>
+        <h1>Lab 3</h1>
+        Name: <input id="userName"><br><br>
+        <input type="submit" onclick="sendToServer()">
+        <h2 id="result"></h2>
+    </div>
+    
+    <script>
+        function sendToServer() {
+            let xhttp = new XMLHttpRequest();
+            let str = document.getElementById("userName").value
+            xhttp.open("GET", "http://localhost:8888/?name=" + str, true);
+            xhttp.send();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200){
+                    document.getElementById("result").innerHTML = this.responseText;
+                    console.log("DONE")
+                }
+            }
+        }
+    </script>
+</body>
+</html>
