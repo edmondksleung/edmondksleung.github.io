@@ -25,7 +25,7 @@ function createGrid(x, y) {
 
 function clearGrid(){
     $(".grid").remove();
-    rotate(0, 1);
+    rotate(0, 0);
 };  
 
 function refreshGrid(){
