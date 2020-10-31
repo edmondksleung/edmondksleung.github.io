@@ -24,14 +24,10 @@ function createGrid(x, y) {
 };
 
 function clearGrid(){
+    $("#playable").removeClass("harder");
     $(".grid").remove();
     rotate(0, 0);
 };  
-
-function refreshGrid(){
-    clearGrid();
-    createGrid(6, 4);
-};
 
 function random(x, y) {
     var randomArray = [];
@@ -61,31 +57,57 @@ function rotate(x, y) {
     );    
 }
 
-// create a 16x16 grid when the page loads
-// creates a hover effect that changes the color of a square to black when the mouse passes over it, leaving a (pixel) trail through the grid
-// allows the click of a button to prompt the user to create a new grid
-$(document).ready(function() {
-    createGrid(3,3);
+function game(cols, rows, score) {
+    clearGrid();
+    createGrid(cols, rows);
+
+    var correct = 0;
+    var incorrect = 0;
+    var clicks = 0;
+    var x = cols;
+    var y = rows;
+    var scr = score;
 
     $(".grid").click(function() {
 
         if ($(this).hasClass("correct")) {
             $(this).css("background-color", "greenyellow");
+            correct++;
+            clicks++;
+            scr++;
+            $("#score").text("Score: " + scr)
         } else {
             $(this).css("background-color", "red");
+            clicks++;
+            incorrect++;
+            scr--;
+            $("#score").text("Score: " + scr)
         }
-        });
 
+        if (clicks == x && correct == x) {
+            $("#playable").addClass("harder");
+        }
 
-   // $(".grid").mouseover(function() {
-   //     $(this).css("background-color", "black");
-   //     });
+        if (clicks == x && incorrect > 0) {
+            x--;
+            y--;
+            setTimeout(function(){ game(x, y, scr); }, 1000);
+        }
 
-    $(".newGrid").click(function() {
-        refreshGrid();
+        if ($("#playable").hasClass("harder")) {
+            x++;
+            y++;
+            setTimeout(function(){ game(x, y, scr); }, 1000);
+        }
 
-        $(".grid").click(function() {
-        $(this).css("background-color", "greenyellow");
-        });
     });
+}
+
+$(document).ready(function() {
+    game(3, 3, 0);
+
+    $("#finish").click(function() {
+        clearGrid();
+        $("#message").text("Game finished!");
+    })
 });
