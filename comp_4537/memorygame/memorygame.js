@@ -67,6 +67,16 @@ function rotate(x, y) {
 $(document).ready(function() {
     createGrid(3,3);
 
+    $(".grid").click(function() {
+
+        if ($(this).hasClass("correct")) {
+            $(this).css("background-color", "greenyellow");
+        } else {
+            $(this).css("background-color", "red");
+        }
+        });
+
+
    // $(".grid").mouseover(function() {
    //     $(this).css("background-color", "black");
    //     });
@@ -74,8 +84,8 @@ $(document).ready(function() {
     $(".newGrid").click(function() {
         refreshGrid();
 
-        $(".grid").mouseover(function() {
-        $(this).css("background-color", "black");
+        $(".grid").click(function() {
+        $(this).css("background-color", "greenyellow");
         });
     });
 });
